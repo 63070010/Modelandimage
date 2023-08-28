@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 
 IMAGE_SIZE = [224, 224]
 
-TrainFolder = "C:/Modelandimage/Train"
-ValidateFolder = "C:\Modelandimage\Validate"
+TrainFolder = "D:/ModelImg/Modelandimage/Train"
+ValidateFolder = "D:/ModelImg/Modelandimage/Validate"
 
 myResnet = ResNet50(input_shape=IMAGE_SIZE +
                     [3], weights='imagenet', include_top=False)
@@ -23,7 +23,7 @@ for layer in myResnet.layers:
     layer.trainable = False
 
 # classes
-Classes = glob('C:/Modelandimage/Train/*')
+Classes = glob('D:/ModelImg/Modelandimage/Train/*')
 print(Classes)
 
 classesNum = len(Classes)
@@ -58,7 +58,7 @@ test_set = test_datagen.flow_from_directory(ValidateFolder, target_size=(
 
 result = model.fit(training_set,
                    validation_data=test_set,
-                   epochs=50,
+                   epochs=4,
                    steps_per_epoch=len(training_set),
                    validation_steps=len(test_set))
 
@@ -75,4 +75,4 @@ plt.legend()
 plt.show()
 
 # save the model
-model.save('C:/Modelandimage/myCarsModel.h5')
+model.save('D:/ModelImg/Modelandimage/myCarsModel.h5')

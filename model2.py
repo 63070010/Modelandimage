@@ -11,7 +11,7 @@ categories = ['2017 Hatchback', '2018 Yaris ATIV',
 
 # load model
 
-model = tf.keras.models.load_model('C:/Modelandimage/myCarsModel.h5')
+model = tf.keras.models.load_model('D:/ModelImg/Modelandimage/myCarsModel.h5')
 print(model.summary())
 
 
@@ -23,7 +23,7 @@ def preprareImage(PathForImage):
     return imgResult
 
 
-testImage = "C:/Modelandimage/maxresdefault.jpg"
+testImage = "D:/ModelImg/Modelandimage/maxresdefault.jpg"
 
 imgForModel = preprareImage(testImage)
 resultArray = model.predict(imgForModel, verbose=1)
